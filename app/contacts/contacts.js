@@ -117,6 +117,22 @@ angular.module('myContacts.contacts', ['ngRoute', 'firebase'])
     });
   }
 
+  $scope.showContact = function (contact) {
+    console.log('Geting Contact...');
+    $scope.name = contact.name;
+    $scope.email = contact.email;
+    $scope.company  = contact.company;
+    $scope.work_phone  = contact.phones[0].work;
+    $scope.home_phone  = contact.phones[0].home;
+    $scope.mobile_phone  = contact.phones[0].mobile;
+    $scope.street_address  = contact.address[0].street_address;
+    $scope.city  = contact.address[0].city;
+    $scope.state  = contact.address[0].state;
+    $scope.zipcode  = contact.address[0].zipcode;
+
+    $scope.contactShow = true;
+  }
+
   //clear $scope Fields
   function clearFields(){
     console.log('clearing all fields');
